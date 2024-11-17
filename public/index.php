@@ -23,6 +23,7 @@
     
     <section>
         <a href="Logout.php">Cerrar Sesión</a>
+        <a href="Busqueda.php">Buscar Habitaciones</a>
     </section>
 
 
