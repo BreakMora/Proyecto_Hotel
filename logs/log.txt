@@ -1,0 +1,18 @@
+[2024-11-17 05:42:11] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-17 05:42:36] Contraseña cambiada exitosamente.
+[2024-11-17 06:57:47] Error de conexión con la base de datos.
+[2024-11-17 06:59:32] Usuario registrado exitosamente.
+[2024-11-17 07:54:25] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-17 07:54:44] Contraseña cambiada exitosamente.
+[2024-11-17 07:57:54] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-17 07:59:00] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-17 08:05:11] Error: El campo 'email' vacío.
+[2024-11-17 08:05:22] Error: El campo 'contrasena' vacío.
+[2024-11-17 08:05:35] Error: Los campos no pueden estar vacíos.
+[2024-11-17 08:05:45] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-17 08:07:17] Contraseña cambiada exitosamente.
+[2024-11-17 08:10:30] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-17 08:10:38] Error: Uno de los campo esta vacío.
+[2024-11-17 08:10:50] Error: Uno de los campo esta vacío.
+[2024-11-17 08:10:56] Error: Uno de los campo esta vacío.
+[2024-11-17 08:11:03] Contraseña cambiada exitosamente.

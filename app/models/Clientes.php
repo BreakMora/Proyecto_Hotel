@@ -1,0 +1,61 @@
+<?php
+
+use LDAP\Result;
+
+require_once (__DIR__ . "/../../config/Config.php");
+
+    class Clientes {
+        private $conn;
+
+        public function __construct($conn){
+            $this->conn = $conn;
+        }
+
+        //Verificar si el usuario existe en la base de datos
+        public function verificarUsuario($email){
+            $stmt = $this->conn->prepare("SELECT email FROM clientes WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->store_result();
+            
+            $existe = $stmt->num_rows > 0; // Verifica si hay resultados
+            return $existe;
+        }
+
+        //Actualizar la contraseña del usuario
+        public function actualizarContrasena($email, $nueva_contrasena) {
+            $stmt = $this->conn->prepare("UPDATE clientes SET contrasena = ? WHERE email = ?");
+            $stmt->bind_param("ss", $nueva_contrasena, $email);
+            $stmt->execute();
+        
+            return $stmt->affected_rows > 0;
+        }
+
+        //Guardar usuario en la base de datos
+        public function guardarUsuario($data_usuario){
+            if(!$this->verificarUsuario($data_usuario['email'])){
+                $stmt = $this->conn->prepare("INSERT INTO clientes (nombre, apellido, email, telefono, direccion, contrasena) 
+                                            VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssss", 
+                    $data_usuario['nombre'], 
+                    $data_usuario['apellido'], 
+                    $data_usuario['email'], 
+                    $data_usuario['telefono'], 
+                    $data_usuario['direccion'], 
+                    $data_usuario['contrasena']);
+                    
+                return $stmt->execute();
+            }
+            return false;
+        }
+
+        public function getDatosUsuarios($email){
+            $sql = "SELECT * FROM clientes WHERE email = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
+          
+    }
+?>
