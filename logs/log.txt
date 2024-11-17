@@ -16,3 +16,4 @@
 [2024-11-17 08:10:50] Error: Uno de los campo esta vacío.
 [2024-11-17 08:10:56] Error: Uno de los campo esta vacío.
 [2024-11-17 08:11:03] Contraseña cambiada exitosamente.
+[2024-11-17 21:21:07] Usuario registrado exitosamente.

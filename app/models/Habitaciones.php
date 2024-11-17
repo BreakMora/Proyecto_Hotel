@@ -33,7 +33,27 @@ require_once (__DIR__ . "/../../config/Config.php");
             
             $stmt->execute();
             return $stmt->get_result();
-        } 
+        }
+
+        public function reservarHabitacion($id_usuario,$habitacion_id){
+            $stmt = $this->conn->prepare("INSERT INTO reservaciones (cliente_id,habitacion_id) VALUES (?,?)");
+            $stmt->bind_param("ii",$id_usuario,$habitacion_id);
+            return $stmt->execute();
+        }
+
+        public function eliminarDisponibilidad($habitacion_id){
+            $stmt = $this->conn->prepare("UPDATE habitaciones SET disponibilidad = 0 WHERE habitacion_id = ?");
+            $stmt->bind_param("i",$habitacion_id);
+            return $stmt->execute();
+        }
+
+        public function obtenerHabitacionReservada($habitacion_id){
+            $stmt = $this->conn->prepare("SELECT * FROM habitaciones WHERE habitacion_id = ?");
+            $stmt->bind_param("i", $habitacion_id);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
+        
     }
 
 ?>
