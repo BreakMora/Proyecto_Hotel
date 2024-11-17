@@ -16,7 +16,7 @@
             <label for="contrasena">Contraseña:</label>
             <input type="password" id="contrasena" name="contrasena">
         </div>
-        <input type="submit">Iniciar sesión</input>
+        <input type="submit" value="Iniciar sesión"></input>
     </form>
     <p>¿Olvidaste tu contraseña? <a href="Recuperar_Contraseña.php">Recuperar Contraseña</a></p>
     <p>¿No tienes cuenta? <a href="Registro.php">Regístrate</a></p>

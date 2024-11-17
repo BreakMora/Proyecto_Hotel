@@ -1,10 +1,11 @@
 <?php
 
 require_once(__DIR__ . '/../../config/Config.php'); // Incluir conexión a la base de datos
+require_once(__DIR__ . '/../models/Habitaciones.php'); // Llama al modelo de habitaciones
 
-// Consulta para obtener las habitaciones disponibles sin filtros
-$sql = "SELECT * FROM habitaciones WHERE disponibilidad = 1";
-$resultado = $conn->query($sql);
+// se llama al model habitaciones para que busque las habitaciones
+$controller = new Habitaciones($conn);
+$resultado = $controller->obtenerHabitaciones();
 
 // Guardar resultados en un array
 $habitaciones = [];
