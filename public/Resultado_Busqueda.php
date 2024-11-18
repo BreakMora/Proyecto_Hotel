@@ -47,7 +47,12 @@
                     <p><?php echo htmlspecialchars($habitacion['descripcion']); ?></p>
                     <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
                     <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
-                    <button class="reservar-btn">Reservar ahora</button>
+
+                    
+                    <form method="POST" action="../app/controllers/Reservar_Habitacion.php">
+                        <input type="hidden" name="habitacion_id" value="<?php echo htmlspecialchars($habitacion['habitacion_id']); ?>">
+                        <button class="reservar-btn">Reservar ahora</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         </div>

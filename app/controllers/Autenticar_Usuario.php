@@ -4,6 +4,7 @@ session_start();
 
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Clientes.php');
+require_once(__DIR__ . '/../utils/Enviar_Correos.php');
 
 class AutenticarUsuario {
     private $clientes;
@@ -28,15 +29,12 @@ class AutenticarUsuario {
 
     // Función para enviar el correo de recuperación
     public function enviarCorreoRecuperacion($email_usuario, $codigo_verificacion) {
-        $para = $email_usuario;
         $asunto = 'Recuperación de Contraseña';
         $mensaje = 'Código de recuperación de contraseña: ' . $codigo_verificacion;
-        $cabecera = 'From: amilcar07mora@gmail.com' . "\r\n" .
-                    "Reply-To: no-reply" . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
-
+        // Crea una instancia de EnviarCorreos
+        $correo = new EnviarCorreos($email_usuario, $asunto, $mensaje);
         // Retorna si el envío del correo fue exitoso o no
-        return mail($para, $asunto, $mensaje, $cabecera);
+        return $correo->enviar($correo);
     }
 
     // Función para verificar el usuario y gestionar el flujo de recuperación

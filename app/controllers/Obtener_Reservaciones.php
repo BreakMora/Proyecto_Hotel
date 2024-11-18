@@ -19,13 +19,17 @@ $habitaciones_reservadas = [];
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         $habitacion_id = $fila['habitacion_id'];
-        
+        $fecha_reservacion = $fila['fecha_reservacion']; // Obtener la fecha de la reservación
+
         // Obtener los detalles de la habitación
         $habitacion_controller = new Habitaciones($conn);
         $habitacion_resultado = $habitacion_controller->obtenerHabitacionReservada($habitacion_id);
 
         if ($habitacion_resultado->num_rows > 0) {
-            $habitaciones_reservadas[] = $habitacion_resultado->fetch_assoc();
+            $habitacion = $habitacion_resultado->fetch_assoc();
+            // Agregar la fecha de la reservación a los detalles de la habitación
+            $habitacion['fecha_reservacion'] = $fecha_reservacion;
+            $habitaciones_reservadas[] = $habitacion;
         }
     }
 }

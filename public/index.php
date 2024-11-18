@@ -52,6 +52,7 @@ if (!isset($_SESSION['cliente_id'])) {
                     <p><?php echo htmlspecialchars($habitacion['descripcion']); ?></p>
                     <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
                     <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
+                    <p><strong>Fecha de reservación: </strong> <?php echo htmlspecialchars($habitacion['fecha_reservacion']); ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
