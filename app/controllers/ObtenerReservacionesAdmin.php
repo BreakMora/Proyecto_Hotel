@@ -13,23 +13,25 @@ if (isset($_SESSION['cliente_id'])) {
 }
 
 $reservacion_controller = new Reservaciones($conn);
-$resultado = $reservacion_controller->obtenerReservacionUsuario($id_usuario);
-$habitaciones_reservadas = [];
+$resultado = $reservacion_controller->obtenerReservaciones();
+$reservaciones = [];
 
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         $habitacion_id = $fila['habitacion_id'];
         $fecha_reservacion = $fila['fecha_reservacion']; // Obtener la fecha de la reservación
+        $reservacion_id = $fila['reservacion_id'];
 
         // Obtener los detalles de la habitación
         $habitacion_controller = new Habitaciones($conn);
-        $habitacion_resultado = $habitacion_controller->obtenerHabitacionReservada($habitacion_id);
+        $datos_habitacion = $habitacion_controller->obtenerHabitacionReservada($habitacion_id);
 
-        if ($habitacion_resultado->num_rows > 0) {
-            $habitacion = $habitacion_resultado->fetch_assoc();
+        if ($datos_habitacion->num_rows > 0) {
+            $habitacion = $datos_habitacion->fetch_assoc();
             // Agregar la fecha de la reservación a los detalles de la habitación
             $habitacion['fecha_reservacion'] = $fecha_reservacion;
-            $habitaciones_reservadas[] = $habitacion;
+            $habitacion['reservacion_id'] = $reservacion_id;
+            $reservaciones[] = $habitacion;
         }
     }
 }

@@ -48,6 +48,7 @@ class Login {
                 if($iniciarSesion['contrasena'] === $usuario['contrasena']){
                     $_SESSION['cliente_id'] = $usuario['cliente_id'];
                     $_SESSION['nombre'] = $usuario['nombre'];
+                    $_SESSION['usuario_email'] = $usuario['email'];
                     $this->redireccion("../../public/index.php");
                 } else {
                     $this->escribirLogs("Error: Contraseña incorrecta para el email: " . $iniciarSesion['email']);

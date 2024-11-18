@@ -53,6 +53,13 @@ require_once (__DIR__ . "/../../config/Config.php");
             $stmt->execute();
             return $stmt->get_result();
         }
+
+        public function incrementarDisponibilidad($habitacion_id){
+            $stmt = $this->conn->prepare("UPDATE habitaciones SET disponibilidad = 1 WHERE habitacion_id = ?");
+            $stmt->bind_param("i", $habitacion_id);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
         
     }
 

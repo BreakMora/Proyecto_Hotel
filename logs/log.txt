@@ -20,3 +20,4 @@
 [2024-11-17 22:34:27] Correo de recuperación enviado, verifica tu bandeja de entrada
 [2024-11-17 22:35:09] Contraseña cambiada exitosamente.
 [2024-11-17 23:21:50] Error: Contraseña incorrecta para el email: 
+[2024-11-18 01:57:37] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
