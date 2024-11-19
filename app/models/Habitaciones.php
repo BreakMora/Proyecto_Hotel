@@ -35,14 +35,14 @@ require_once (__DIR__ . "/../../config/Config.php");
             return $stmt->get_result();
         }
 
-        public function reservarHabitacion($id_usuario,$habitacion_id){
-            $stmt = $this->conn->prepare("INSERT INTO reservaciones (cliente_id,habitacion_id) VALUES (?,?)");
-            $stmt->bind_param("ii",$id_usuario,$habitacion_id);
+        public function reservarHabitacion($id_usuario, $habitacion_id, $fecha_entrada, $fecha_salida, $costo) {
+            $stmt = $this->conn->prepare("INSERT INTO reservaciones (cliente_id, habitacion_id, fecha_entrada, fecha_salida, costo) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("iissd", $id_usuario, $habitacion_id, $fecha_entrada, $fecha_salida, $costo);
             return $stmt->execute();
         }
 
-        public function eliminarDisponibilidad($habitacion_id){
-            $stmt = $this->conn->prepare("UPDATE habitaciones SET disponibilidad = 0 WHERE habitacion_id = ?");
+        public function disminuirDisponibilidad($habitacion_id){
+            $stmt = $this->conn->prepare("UPDATE habitaciones SET cantidad_habitaciones = cantidad_habitaciones - 1 WHERE habitacion_id = ?");
             $stmt->bind_param("i",$habitacion_id);
             return $stmt->execute();
         }
@@ -55,12 +55,26 @@ require_once (__DIR__ . "/../../config/Config.php");
         }
 
         public function incrementarDisponibilidad($habitacion_id){
-            $stmt = $this->conn->prepare("UPDATE habitaciones SET disponibilidad = 1 WHERE habitacion_id = ?");
+            $stmt = $this->conn->prepare("UPDATE habitaciones SET cantidad_habitaciones = cantidad_habitaciones + 1 WHERE habitacion_id = ?");
             $stmt->bind_param("i", $habitacion_id);
             $stmt->execute();
             return $stmt->get_result();
         }
         
+        // En tu clase Habitaciones
+        public function obtenerHabitacionPorId($habitacion_id) {
+            // Prepara la consulta SQL
+            $stmt = $this->conn->prepare("SELECT * FROM habitaciones WHERE habitacion_id = ?");
+            $stmt->bind_param("i", $habitacion_id);  // El parámetro es un entero (id)
+            $stmt->execute();  // Ejecutar la consulta
+            
+            // Obtener el resultado
+            $resultado = $stmt->get_result();
+            
+            // Devolver el resultado
+            return $resultado;
+        }
+
     }
 
 ?>

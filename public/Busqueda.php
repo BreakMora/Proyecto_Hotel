@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && (!empty($_GET['tipo']) || isset($_GE
                     <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
                     <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
 
-                    <form method="POST" action="../app/controllers/Reservar_Habitacion.php">
+                    <form method="POST" action="Confirmar_Reserva.php">
                         <input type="hidden" name="habitacion_id" value="<?php echo htmlspecialchars($habitacion['habitacion_id']); ?>">
-                        <button class="reservar-btn">Reservar ahora</button>
+                        <button class="reservar-btn">Reservar</button>
                     </form>
                 </div>
             <?php endforeach; ?>

@@ -82,8 +82,11 @@ if (!isset($_SESSION['id'])) {
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio por noche</th>
+                    <th>Costo Total</th>
                     <th>Tipo</th>
-                    <th>Fecha de reservación</th>
+                    <th>Fecha de la reservación</th>
+                    <th>Fecha de Entrada</th>
+                    <th>Fecha de Salida</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -101,6 +104,7 @@ if (!isset($_SESSION['id'])) {
                         <td><?php echo htmlspecialchars($habitacion['nombre']); ?></td>
                         <td><?php echo htmlspecialchars($habitacion['descripcion']); ?></td>
                         <td>$<?php echo number_format($habitacion['precio'], 2); ?></td>
+                        
                         <td><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></td>
                         <td><?php echo htmlspecialchars($habitacion['fecha_reservacion']); ?></td>
                         <td class="acciones">

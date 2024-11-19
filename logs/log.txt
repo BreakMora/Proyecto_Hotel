@@ -33,3 +33,7 @@
 [2024-11-19 03:48:22] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
 [2024-11-19 03:48:24] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
 [2024-11-19 03:51:40] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 04:55:50] Error: Excepción al intentar obtener los detalles de la habitación. E: Unknown column 'id' in 'where clause'
+[2024-11-19 04:56:02] Error: Excepción al intentar obtener los detalles de la habitación. E: Unknown column 'id' in 'where clause'
+[2024-11-19 04:57:00] Advertencia: No se encontró la habitación con ID 0.
+[2024-11-19 04:59:04] Advertencia: No se encontró la habitación con ID .
