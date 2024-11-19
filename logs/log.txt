@@ -25,3 +25,11 @@
 [2024-11-19 01:19:52] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
 [2024-11-19 01:21:04] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
 [2024-11-19 01:21:18] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-19 03:46:48] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:46:52] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:46:56] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:47:01] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:47:07] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:48:22] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:48:24] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
+[2024-11-19 03:51:40] Advertencia: No se encontraron habitaciones según los filtros seleccionados.
