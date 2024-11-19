@@ -5,20 +5,13 @@ session_start();
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Clientes.php');
 require_once(__DIR__ . '/../utils/Enviar_Correos.php');
+require_once(__DIR__ . '/../utils/Logger.php');
 
 class AutenticarUsuario {
     private $clientes;
-    private $logFile = __DIR__ . '/../../logs/log.txt';
 
     public function __construct($conn) {
         $this->clientes = new Clientes($conn);
-    }
-
-    // Función para escribir logs de errores en un archivo
-    public function escribirLogs($mensaje) {
-        $fecha = date('Y-m-d H:i:s');
-        $mensaje_log = "[$fecha] $mensaje" . PHP_EOL;
-        file_put_contents($this->logFile, $mensaje_log, FILE_APPEND);
     }
 
     // Redirección a la página indicada
@@ -43,19 +36,19 @@ class AutenticarUsuario {
 
         // Validación de campos vacíos
         if (empty($email_usuario)) {
-            $this->escribirLogs("Error: Los campos no pueden estar vacíos.");
+            Logger::escribirLogs("Error: Los campos no pueden estar vacíos.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
 
         // Validación de formato de correo
         if (!filter_var($email_usuario, FILTER_VALIDATE_EMAIL)) {
-            $this->escribirLogs("Error: Formato de correo no válido.");
+            Logger::escribirLogs("Error: Formato de correo no válido.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
 
         // Verificar si el usuario existe
         if (!$this->clientes->verificarUsuario($email_usuario)) {
-            $this->escribirLogs("Error: El email ingresado no pertenece a ninguna cuenta registrada.");
+            Logger::escribirLogs("Error: El email ingresado no pertenece a ninguna cuenta registrada.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
 
@@ -67,10 +60,10 @@ class AutenticarUsuario {
 
         // Enviar el correo de recuperación
         if ($this->enviarCorreoRecuperacion($email_usuario, $codigo_verificacion)) {
-            $this->escribirLogs('Correo de recuperación enviado, verifica tu bandeja de entrada');
+            Logger::escribirLogs('Correo de recuperación enviado, verifica tu bandeja de entrada');
             $_SESSION['codigo_verificacion'] = $codigo_verificacion; // Guardar el código de verificación en la sesión
         } else {
-            $this->escribirLogs('Error al enviar el correo de recuperación. Inténtalo de nuevo más tarde.');
+            Logger::escribirLogs('Error al enviar el correo de recuperación. Inténtalo de nuevo más tarde.');
         }
 
         // Redirigir a la página de validación de código
@@ -85,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['usuario_email'])) {
     
     // Verificar si la conexión a la base de datos está activa
     if (!isset($conn)) {
-        $controller->escribirLogs("Error: Conexión a la base de datos no establecida.");
+        Logger::escribirLogs("Error: Conexión a la base de datos no establecida.");
         header('Location: ../../public/Recuperar_Contraseña.php');
         exit;
     }

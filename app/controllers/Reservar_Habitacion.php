@@ -6,8 +6,8 @@ require_once(__DIR__ . '/../models/Clientes.php');
 require_once(__DIR__ . '/../models/Habitaciones.php');
 require_once(__DIR__ . '/../utils/Enviar_Correos.php');
 
-if (isset($_SESSION['cliente_id'])) {
-    $id_usuario = $_SESSION['cliente_id'];
+if (isset($_SESSION['id'])) {
+    $id_usuario = $_SESSION['id'];
     $email_usuario = $_SESSION['usuario_email'];
 } else {
     // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión

@@ -5,20 +5,16 @@ session_start(); // Iniciar sesión
 // Conexión a la base de datos
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Clientes.php');
+require_once(__DIR__ . '/../models/Administradores.php');
+require_once(__DIR__ . '/../utils/Logger.php');
 
 class Login {
     private $clientes;
-    private $logFile = __DIR__ . '/../../logs/log.txt';
+    private $administradores;
 
     public function __construct($conn) {
         $this->clientes = new Clientes($conn);
-    }
-
-    // Función para guardar el mensaje de error en sesión
-    public function escribirLogs($mensaje) {
-        $fecha = date('Y-m-d H:i:s');
-        $mensaje = "[$fecha] $mensaje" . PHP_EOL;
-        file_put_contents($this->logFile, $mensaje, FILE_APPEND);
+        $this->administradores = new Administradores($conn);
     }
 
     // Redirigir a la URL con el mensaje de error
@@ -30,39 +26,50 @@ class Login {
     public function validarCampos($iniciarSesion){
         foreach ($iniciarSesion as $dato => $campo) {
             if (empty($campo)) {
-                $this->escribirLogs("Error: El campo '$dato' vacío.");
+                Logger::escribirLogs("Error: El campo '$dato' vacío.");
                 $this->redireccion("../../public/Login.php");
             }
         }
     }
 
-    public function iniciarSesion($iniciarSesion){
-        $this->validarCampos($iniciarSesion);
-
-        if($this->clientes->verificarUsuario($iniciarSesion['email'])){
-            $datos = $this->clientes->getDatosUsuarios($iniciarSesion['email']);
-
-            if($datos->num_rows > 0){
-                $usuario = $datos->fetch_assoc();
-
-                if($iniciarSesion['contrasena'] === $usuario['contrasena']){
-                    $_SESSION['cliente_id'] = $usuario['cliente_id'];
-                    $_SESSION['nombre'] = $usuario['nombre'];
-                    $_SESSION['usuario_email'] = $usuario['email'];
-                    $this->redireccion("../../public/index.php");
-                } else {
-                    $this->escribirLogs("Error: Contraseña incorrecta para el email: " . $iniciarSesion['email']);
-                    $this->redireccion("../../public/Login.php");
-                }
-
-            }
-
+    public function identificarUsuario($email_usuario) {
+        if($this->administradores->verificarAdmin($email_usuario)){
+            return true;
+        } elseif ($this->clientes->verificarCliente($email_usuario)) {
+            return false;
         } else {
-            $this->escribirLogs("Error: Correo no registrado.");
+            Logger::escribirLogs("Error: Correo '$email_usuario' no registrado.");
             $this->redireccion("../../public/Registro.php");
         }
     }
-    
+
+    public function iniciarSesion($iniciarSesion){
+        $this->validarCampos($iniciarSesion);
+        $usuario = $this->identificarUsuario($iniciarSesion['email']);
+
+        if($usuario){
+            $datos = $this->administradores->getDatosAdmin($iniciarSesion['email']);
+            $redireccion = "../../public/Admin.php";
+        } else {
+            $datos = $this->clientes->getDatosClientes($iniciarSesion['email']);
+            $redireccion = "../../public/Cliente.php";
+        }
+
+        if($datos->num_rows > 0){
+            $datos_usuario = $datos->fetch_assoc();
+
+            if($iniciarSesion['contrasena'] === $datos_usuario['contrasena']){
+                $_SESSION['id'] = ($usuario) ? $datos_usuario['admin_id'] : $datos_usuario['cliente_id'];
+                $_SESSION['nombre'] = $datos_usuario['nombre'];
+                $_SESSION['usuario_email'] = $datos_usuario['email'];
+                $this->redireccion($redireccion);
+            } else {
+                Logger::escribirLogs("Error: Contraseña incorrecta para el email: " . $iniciarSesion['email']);
+                $this->redireccion("../../public/Login.php");
+            }
+
+        }
+    }
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -74,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     if(!isset($conn)){
-        $controller->escribirLogs('Error de conexión con la base de datos.');
+        Logger::escribirLogs('Error de conexión con la base de datos.');
         header('Location: ../../public/Login.php');
         exit;
     }

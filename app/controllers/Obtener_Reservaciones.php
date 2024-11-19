@@ -2,13 +2,15 @@
 
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Reservaciones.php');
+require_once(__DIR__ . '/../utils/Logger.php');
 
-if (isset($_SESSION['cliente_id'])) {
-    $id_usuario = $_SESSION['cliente_id'];
+// Verificar si el usuario ha iniciado sesión
+if (isset($_SESSION['id'])) {
+    $id_usuario = $_SESSION['id'];
 } else {
     // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
+    Logger::escribirLogs("Advertencia: Intento de acceso a reservaciones sin iniciar sesión.");
     header("Location: Login.php");
-    // Finaliza el script para evitar que el resto del código se ejecute
     exit();
 }
 
@@ -34,5 +36,4 @@ if ($resultado->num_rows > 0) {
     }
 }
 
-$conn->close();
 ?>

@@ -3,8 +3,8 @@
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Reservaciones.php');
 
-if (isset($_SESSION['cliente_id'])) {
-    $id_usuario = $_SESSION['cliente_id'];
+if (isset($_SESSION['id'])) {
+    $id_usuario = $_SESSION['id'];
 } else {
     // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
     header("Location: Login.php");
@@ -36,5 +36,4 @@ if ($resultado->num_rows > 0) {
     }
 }
 
-$conn->close();
 ?>

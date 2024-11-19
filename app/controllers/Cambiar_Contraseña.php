@@ -4,20 +4,13 @@ session_start();
 
 require_once(__DIR__ . '/../../config/Config.php');
 require_once(__DIR__ . '/../models/Clientes.php');
+require_once(__DIR__ . '/../utils/Logger.php');
 
 class CambiarContrasena {
     private $clientes;
-    private $logFile = __DIR__ . '/../../logs/log.txt';
 
     public function __construct($conn) {
         $this->clientes = new Clientes($conn);
-    }
-
-    // Función para guardar el mensaje de error en sesión
-    private function escribirLogs($mensaje) {
-        $fecha = date('Y-m-d H:i:s');
-        $mensaje = "[$fecha] $mensaje" . PHP_EOL;
-        file_put_contents($this->logFile, $mensaje, FILE_APPEND);
     }
 
     // Redirigir a la URL con el mensaje de error
@@ -28,7 +21,7 @@ class CambiarContrasena {
 
     public function validarCampos($nueva_contraseña, $confirmar_contraseña){
         if (empty($nueva_contraseña) || empty($confirmar_contraseña)) {
-            $this->escribirLogs("Error: Uno de los campo esta vacío.");
+            Logger::escribirLogs("Advertencia: Uno de los campos de contraseña está vacío.");
             $this->redireccion("../../public/Cambiar_Contraseña.php");
         }
     }
@@ -43,7 +36,7 @@ class CambiarContrasena {
         if ($nueva_contraseña === $confirmar_contraseña) {
             $this->cambiarContrasena($nueva_contraseña);
         } else {
-            $this->escribirLogs("Error: Las contraseñas no coinciden.");
+            Logger::escribirLogs("Error: Las contraseñas ingresadas no coinciden. Verifica e intenta nuevamente.");
             $this->redireccion("../../public/Cambiar_Contraseña.php");
         }
     }
@@ -51,17 +44,17 @@ class CambiarContrasena {
     // Cambiar la contraseña en la base de datos
     public function cambiarContrasena($nueva_contraseña) {
         if (!isset($_SESSION['usuario_email'])) {
-            $this->escribirLogs("Error: No se pudo recuperar el correo del usuario.");
+            Logger::escribirLogs("Error: No se pudo recuperar el correo electrónico del usuario. Sesión expirada o no autenticado.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
 
         $email_usuario = $_SESSION['usuario_email'];
 
         if ($this->clientes->actualizarContrasena($email_usuario, $nueva_contraseña)) {
-            $this->escribirLogs("Contraseña cambiada exitosamente.");
+            Logger::escribirLogs("Éxito: La contraseña se ha cambiado correctamente para el usuario con correo $email_usuario.");
             $this->redireccion("../../public/Login.php");
         } else {
-            $this->escribirLogs("Error: No se pudo actualizar la contraseña. Inténtalo de nuevo.");
+            Logger::escribirLogs("Error: No se pudo actualizar la contraseña para el usuario con correo $email_usuario. Inténtalo de nuevo más tarde.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
     }
@@ -74,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nueva_contraseña']) &
         $controller = new CambiarContrasena($conn);
         $controller->validarNuevaContraseña($_POST['nueva_contraseña'], $_POST['confirmar_contraseña']);
     } else {
-        $this->escribirLogs('Error de conexión con la base de datos.');
+        Logger::escribirLogs('Error: No se pudo establecer conexión con la base de datos. Acción no completada.');
         header('Location: ../../public/Recuperar_Contraseña.php');
         exit;
     }

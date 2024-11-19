@@ -4,13 +4,12 @@ session_start();
 require '../app/controllers/Obtener_Habitaciones.php';
 
 // Verifica si la variable de sesión 'usuario' no está definida, lo que significa que el usuario no ha iniciado sesión
-if (!isset($_SESSION['cliente_id'])) {
+if (!isset($_SESSION['id'])) {
     // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
     header("Location: Login.php");
     // Finaliza el script para evitar que el resto del código se ejecute
     exit();
 }
-
 
 ?>
 
@@ -29,7 +28,7 @@ if (!isset($_SESSION['cliente_id'])) {
 
     <section>
         <a href="Logout.php">Cerrar Sesión</a>
-        <a href="index.php">Volver</a>
+        <a href="cliente.php">Volver</a>
     </section>
 
     <!-- Formulario de filtros de búsqueda -->

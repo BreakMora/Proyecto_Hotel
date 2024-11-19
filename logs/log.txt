@@ -21,3 +21,7 @@
 [2024-11-17 22:35:09] Contraseña cambiada exitosamente.
 [2024-11-17 23:21:50] Error: Contraseña incorrecta para el email: 
 [2024-11-18 01:57:37] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-19 01:19:34] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-19 01:19:52] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-19 01:21:04] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-19 01:21:18] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.

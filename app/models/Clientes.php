@@ -10,7 +10,7 @@ require_once (__DIR__ . "/../../config/Config.php");
         }
 
         //Verificar si el usuario existe en la base de datos
-        public function verificarUsuario($email){
+        public function verificarCliente($email){
             $stmt = $this->conn->prepare("SELECT email FROM clientes WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -31,7 +31,7 @@ require_once (__DIR__ . "/../../config/Config.php");
 
         //Guardar usuario en la base de datos
         public function guardarUsuario($data_usuario){
-            if(!$this->verificarUsuario($data_usuario['email'])){
+            if(!$this->verificarCliente($data_usuario['email'])){
                 $stmt = $this->conn->prepare("INSERT INTO clientes (nombre, apellido, email, telefono, direccion, contrasena) 
                                             VALUES (?, ?, ?, ?, ?, ?)");
                 $stmt->bind_param("ssssss", 
@@ -47,7 +47,7 @@ require_once (__DIR__ . "/../../config/Config.php");
             return false;
         }
 
-        public function getDatosUsuarios($email){
+        public function getDatosClientes($email){
             $sql = "SELECT * FROM clientes WHERE email = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("s", $email);
