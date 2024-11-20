@@ -47,13 +47,22 @@ require_once (__DIR__ . "/../../config/Config.php");
             return false;
         }
 
-        public function getDatosClientes($email){
+        public function getDatosClientesEmail($email){
             $sql = "SELECT * FROM clientes WHERE email = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
             return $stmt->get_result();
         }
+
+        public function getNombreCliente($id){
+            $sql = "SELECT nombre,apellido FROM clientes WHERE cliente_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
+
           
     }
 ?>

@@ -50,9 +50,11 @@ if (!isset($_SESSION['id'])) {
                         class="habitacion-img">
                     <h3><?php echo htmlspecialchars($habitacion['nombre']); ?></h3>
                     <p><?php echo htmlspecialchars($habitacion['descripcion']); ?></p>
-                    <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
                     <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
-                    <p><strong>Fecha de reservación: </strong> <?php echo htmlspecialchars($habitacion['fecha_reservacion']); ?></p>
+                    <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
+                    <p><strong>Fecha de entrada: </strong> <?php echo htmlspecialchars($habitacion['fecha_entrada']); ?></p>
+                    <p><strong>Fecha de salida: </strong> <?php echo htmlspecialchars($habitacion['fecha_salida']); ?></p>
+                    <p><strong>Costo total: </strong>$<?php echo number_format($habitacion['costo'], 2); ?></p>
                 </div>
             <?php endforeach; ?>
         </div>

@@ -80,10 +80,10 @@ if (!isset($_SESSION['id'])) {
                     <th>Id</th>
                     <th>Imagen</th>
                     <th>Nombre</th>
-                    <th>Descripción</th>
                     <th>Precio por noche</th>
                     <th>Costo Total</th>
                     <th>Tipo</th>
+                    <th>Hecha por</th>
                     <th>Fecha de la reservación</th>
                     <th>Fecha de Entrada</th>
                     <th>Fecha de Salida</th>
@@ -102,11 +102,13 @@ if (!isset($_SESSION['id'])) {
                             <img src="../assets/<?php echo $imagen; ?>" alt="<?php echo htmlspecialchars($habitacion['nombre']); ?>" class="habitacion-img" style="width: 100px; height: auto;">
                         </td>
                         <td><?php echo htmlspecialchars($habitacion['nombre']); ?></td>
-                        <td><?php echo htmlspecialchars($habitacion['descripcion']); ?></td>
                         <td>$<?php echo number_format($habitacion['precio'], 2); ?></td>
-                        
+                        <td>$<?php echo htmlspecialchars($habitacion['costo']); ?></td>
                         <td><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></td>
+                        <td><?php echo htmlspecialchars($habitacion['nombre_cliente']) . " " . htmlspecialchars($habitacion['apellido_cliente']) ; ?></td>
                         <td><?php echo htmlspecialchars($habitacion['fecha_reservacion']); ?></td>
+                        <td><?php echo htmlspecialchars($habitacion['fecha_entrada']); ?></td>
+                        <td><?php echo htmlspecialchars($habitacion['fecha_salida']); ?></td>
                         <td class="acciones">
                             <button class="boton eliminar" onclick="if(confirm('¿Estás seguro de que deseas eliminar esta reservación?')) location.href='../app/controllers/EliminarReservacionAdmin.php?id=<?php echo $habitacion['reservacion_id']; ?>&habitacion_id=<?php echo $habitacion['habitacion_id'];?>'">Eliminar</button>
                         </td>

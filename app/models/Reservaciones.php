@@ -12,7 +12,7 @@ require 'Habitaciones.php';
         }
 
         public function obtenerReservacionUsuario($id_usuario){
-            $stmt = $this->conn->prepare("SELECT habitacion_id,fecha_reservacion FROM reservaciones WHERE cliente_id = ?");
+            $stmt = $this->conn->prepare("SELECT * FROM reservaciones WHERE cliente_id = ?");
             $stmt->bind_param("i",$id_usuario);
             $stmt->execute();
             return $stmt->get_result();
