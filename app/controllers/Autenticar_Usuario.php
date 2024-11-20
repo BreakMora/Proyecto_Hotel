@@ -47,7 +47,7 @@ class AutenticarUsuario {
         }
 
         // Verificar si el usuario existe
-        if (!$this->clientes->verificarUsuario($email_usuario)) {
+        if (!$this->clientes->verificarCliente($email_usuario)) {
             Logger::escribirLogs("Error: El email ingresado no pertenece a ninguna cuenta registrada.");
             $this->redireccion("../../public/Recuperar_Contraseña.php");
         }
