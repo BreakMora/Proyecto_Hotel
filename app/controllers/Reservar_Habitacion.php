@@ -17,6 +17,8 @@ $id_usuario = $_SESSION['id'];
 $email_usuario = $_SESSION['usuario_email'];
 
 $habitacion_id = isset($_POST['habitacion_id']) ? (int)$_POST['habitacion_id'] : 0;
+$costo_total = isset($_POST['costo_total']) ? (float)$_POST['costo_total'] : 0.0;
+
 $controller = new Habitaciones($conn);
 
 // Obtener los detalles de la habitación seleccionada
@@ -42,21 +44,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['fecha_entrada']) && is
 
     // Validar que las fechas sean correctas
     if (strtotime($fecha_entrada) < strtotime($fecha_salida)) {
-        // Calcular el número de noches
-        $num_noches = (strtotime($fecha_salida) - strtotime($fecha_entrada)) / (60 * 60 * 24);
-        $costo_total = $num_noches * $habitacion['precio'];
-
         // Reservar la habitación
         $resultado_reserva = $controller->reservarHabitacion($id_usuario, $habitacion_id, $fecha_entrada, $fecha_salida,$costo_total);
 
         if ($resultado_reserva) {
-            // Disminuir la disponibilidad de la habitación
+            // Disminuir la cantidad de habitaciones disponibles
             $controller->disminuirDisponibilidad($habitacion_id);
 
             // Enviar correo de confirmación al usuario
             $asunto = 'Reservación Completada';
-            $mensaje = 'Usted ha reservado la habitación ' . $habitacion['nombre'] .
-                '. Con un precio total de: $' . number_format($costo_total, 2) . '.';
+            $mensaje = 'Usted ha reservado la habitación ' . $habitacion['nombre'] . '. Con un precio total de: $' . number_format($costo_total, 2) . '.';
 
             $correo = new EnviarCorreos($email_usuario, $asunto, $mensaje);
             $correo->enviar($correo);

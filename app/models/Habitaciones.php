@@ -10,7 +10,7 @@ require_once (__DIR__ . "/../../config/Config.php");
         }
 
         public function obtenerHabitaciones(){
-            $sql = "SELECT * FROM habitaciones WHERE disponibilidad = 1";
+            $sql = "SELECT * FROM habitaciones WHERE cantidad_habitaciones > 0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->get_result();
