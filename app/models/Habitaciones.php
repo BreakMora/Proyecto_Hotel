@@ -9,7 +9,14 @@ require_once (__DIR__ . "/../../config/Config.php");
             $this->conn=$conn;
         }
 
-        public function obtenerHabitaciones(){
+        public function obtenerHabitaciones() {
+            $sql = "SELECT * FROM habitaciones";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
+
+        public function obtenerHabitacionesBusqueda(){
             $sql = "SELECT * FROM habitaciones WHERE cantidad_habitaciones > 0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -73,6 +80,12 @@ require_once (__DIR__ . "/../../config/Config.php");
             
             // Devolver el resultado
             return $resultado;
+        }
+
+        public function eliminarHabitacion($habitacion_id) {
+            $stmt = $this->conn->prepare("DELETE FROM habitaciones WHERE habitacion_id=?");
+            $stmt->bind_param("i",$habitacion_id);
+            return $stmt->execute();
         }
 
     }

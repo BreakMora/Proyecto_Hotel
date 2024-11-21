@@ -38,3 +38,6 @@
 [2024-11-19 04:57:00] Advertencia: No se encontró la habitación con ID 0.
 [2024-11-19 04:59:04] Advertencia: No se encontró la habitación con ID .
 [2024-11-20 01:49:00] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-21 01:58:10] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-21 05:27:50] Excepción: no se pudo eliminar el cliente Unknown column 'cliente_id' in 'where clause'
+[2024-11-21 05:27:55] Excepción: no se pudo eliminar el cliente Unknown column 'cliente_id' in 'where clause'

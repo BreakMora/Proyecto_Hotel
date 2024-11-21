@@ -11,7 +11,7 @@ try {
     // Crear instancia del controlador de habitaciones
     $controller = new Habitaciones($conn);
     // Obtener todas las habitaciones
-    $resultado = $controller->obtenerHabitaciones();
+    $resultado = $controller->obtenerHabitacionesBusqueda();
 
     // Procesar resultados
     if ($resultado && $resultado->num_rows > 0) {

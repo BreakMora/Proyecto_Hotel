@@ -63,6 +63,19 @@ require_once (__DIR__ . "/../../config/Config.php");
             return $stmt->get_result();
         }
 
+        public function getDatosClientes(){
+            $sql = "SELECT * FROM clientes";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->get_result();
+        }
+
+        public function eliminarCliente($cliente_id) {
+            $stmt = $this->conn->prepare("DELETE FROM clientes WHERE cliente_id=?");
+            $stmt->bind_param("i",$cliente_id);
+            return $stmt->execute();
+        }
+
           
     }
 ?>

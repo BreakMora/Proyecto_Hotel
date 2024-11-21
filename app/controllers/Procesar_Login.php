@@ -51,7 +51,7 @@ class Login {
             $datos = $this->administradores->getDatosAdmin($iniciarSesion['email']);
             $redireccion = "../../public/Admin.php";
         } else {
-            $datos = $this->clientes->getDatosClientes($iniciarSesion['email']);
+            $datos = $this->clientes->getDatosClientesEmail($iniciarSesion['email']);
             $redireccion = "../../public/Cliente.php";
         }
 
