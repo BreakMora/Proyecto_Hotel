@@ -88,6 +88,12 @@ require_once (__DIR__ . "/../../config/Config.php");
             return $stmt->execute();
         }
 
+        public function actualizarHabitacion($habitacion_id, $nombre, $descripcion, $precio, $disponibilidad, $cantidad_habitaciones, $imagen, $tipo){
+            $stmt = $this->conn->prepare("UPDATE habitaciones SET nombre = ?, descripcion = ?, precio = ?, disponibilidad = ?, cantidad_habitaciones = ?, imagen = ?, tipo = ? WHERE habitacion_id = ?");
+            $stmt->bind_param("ssdiisss", $nombre, $descripcion, $precio, $disponibilidad, $cantidad_habitaciones, $imagen, $tipo, $habitacion_id);
+            return $stmt->execute();
+        }
+
     }
 
 ?>

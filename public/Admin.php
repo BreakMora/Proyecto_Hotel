@@ -16,7 +16,7 @@ if (!isset($_SESSION['id'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -177,7 +177,8 @@ if (!isset($_SESSION['id'])) {
                             <td><?php echo htmlspecialchars($habitacion['cantidad_habitaciones']); ?></td>
                             <td><?php echo htmlspecialchars($habitacion['tipo']); ?></td>
                             <td class="acciones">
-                            <button class="boton eliminar" onclick="if(confirm('¿Estás seguro de que deseas eliminar esta habitación?')) location.href='../app/controllers/EliminarHabitacionAdmin.php?habitacion_id=<?php echo $habitacion['habitacion_id']; ?>';">Eliminar</button>
+                                <button class="boton editar" onclick="if(confirm('¿Estás seguro de que deseas editar esta habitación?')) location.href='../app/controllers/EditarHabitacionAdmin.php?habitacion_id=<?php echo $habitacion['habitacion_id']; ?>';">Editar</button>
+                                <button class="boton eliminar" onclick="if(confirm('¿Estás seguro de que deseas eliminar esta habitación?')) location.href='../app/controllers/EliminarHabitacionAdmin.php?habitacion_id=<?php echo $habitacion['habitacion_id']; ?>';">Eliminar</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
