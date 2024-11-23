@@ -141,7 +141,7 @@ if (!isset($_SESSION['id'])) {
     </section>
 
 
-    <!-- Mostrar todas las habitaciones disponibles o no -->.
+    <!-- Mostrar todas las habitaciones disponibles o no -->
     <section role="tabpanel" id="habitaciones" aria-labelledby="tab-habitaciones" hidden>
         <h2>Habitaciones</h2>
         <?php if (count($habitaciones) > 0): ?>
@@ -189,9 +189,9 @@ if (!isset($_SESSION['id'])) {
         <?php endif; ?>
     </section>
         
-    <!-- Mostrar todos los usuarios registrados -->.
+    <!-- Mostrar todos los usuarios registrados -->
     <section role="tabpanel" id="usuarios" aria-labelledby="tab-usuarios" hidden>
-        <h2>Habitaciones</h2>
+        <h2>Usuarios</h2>
         <?php if (count($usuarios) > 0): ?>
             <table>
                 <thead>
@@ -217,6 +217,7 @@ if (!isset($_SESSION['id'])) {
                             <td><?php echo ($usuario['direccion']); ?></td>
                             <td><?php echo htmlspecialchars($usuario['fecha_registro']); ?></td>
                             <td class="acciones">
+                                <button class="boton editar" onclick="if(confirm('¿Estás seguro de que deseas editar este cliente?')) location.href='../app/controllers/EditarUsuariosAdmin.php?cliente_id=<?php echo $usuario['cliente_id']; ?>'">Editar</button>
                                 <button class="boton eliminar" onclick="if(confirm('¿Estás seguro de que deseas eliminar este cliente?')) location.href='../app/controllers/EliminarUsuariosAdmin.php?cliente_id=<?php echo $usuario['cliente_id']; ?>'">Eliminar</button>
                             </td>
                         </tr>

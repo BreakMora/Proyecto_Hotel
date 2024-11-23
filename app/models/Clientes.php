@@ -76,6 +76,18 @@ require_once (__DIR__ . "/../../config/Config.php");
             return $stmt->execute();
         }
 
-          
+        public function getDatosClientesID($cliente_id){
+            $stmt = $this->conn->prepare("SELECT * FROM clientes WHERE cliente_id=?");
+            $stmt->bind_param("i",$cliente_id);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            return $resultado;
+        }
+
+        public function actualizarUsuario($cliente_id, $nombre, $apellido, $email, $telefono, $direccion){
+            $stmt = $this->conn->prepare("UPDATE clientes SET nombre = ?, apellido = ?, email = ?, telefono = ?, direccion = ? WHERE cliente_id = ?");
+            $stmt->bind_param("sssssi", $nombre, $apellido, $email, $telefono, $direccion, $cliente_id);
+            return $stmt->execute();
+        }
     }
 ?>
