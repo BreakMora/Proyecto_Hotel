@@ -15,7 +15,7 @@
             <source src="../assets/banner.mp4" type="video/mp4">
         </video>
     </section>
-    
+
     <header class="encabezado">
         <div class="container-navegador">
             <div class="Esquina-izquierda">
@@ -36,8 +36,8 @@
         </div>
     </header>
 
-     <!-- Sección de Bienvenida -->
-     <section class="bienvenida">
+    <!-- Sección de Bienvenida -->
+    <section class="bienvenida">
         <h1>Bienvenido a La Terraza del Sol</h1>
         <p>Tu lugar ideal para relajarte, disfrutar y crear recuerdos inolvidables. ¡Descubre el paraíso que tenemos preparado para ti!</p>
     </section>
@@ -93,7 +93,24 @@
         <blockquote>"La mejor experiencia de mi vida. Servicio impecable y vistas increíbles." - Carlos M.</blockquote>
     </section>
 
-
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="contacto">
+                <p>Contacto: <a href="mailto:hotelcecil2024@gmail.com">hotelcecil2024@gmail.com</a></p>
+            </div>
+            <div class="redes-sociales">
+                <p>Síguenos en:</p>
+                <ul>
+                    <li><a href="https://facebook.com/laterradelsol" target="_blank">Facebook</a></li>
+                    <li><a href="https://instagram.com/laterradelsol" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com/laterradelsol" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 La Terraza del Sol. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 
