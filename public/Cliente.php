@@ -20,47 +20,96 @@ if (!isset($_SESSION['id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel</title>
-    <link rel="stylesheet" href="../assets/estilo_habitaciones.css">
+    <link rel="stylesheet" href="../assets/menu_inicio.css">
+    <link rel="stylesheet" href="../assets/menu_cliente.css">
 </head>
 
 <body>
+    <header class="encabezado">
+        <div class="container-navegador">
+            <div class="Esquina-izquierda">
+                <!-- Logo del sitio -->
+                <a href="" class="logo">
+                    <img src="../assets/terraza_sol.png" alt="La Terraza del Sol" class="logo-img">
+                    <div class="logo-texto">La Terraza del Sol</div>
+                </a>
+            </div>
+            <div class="Esquina-derecha">
+                <ul class="barra-navegacion">
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="Busqueda.php" class="activo">Habitaciones</a></li>
+                    <li><a href="Login.php">Iniciar Sesión</a></li>
+                    <li><a href="Registro.php">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-    <section>
-        <a href="Logout.php">Cerrar Sesión</a>
-        <a href="Busqueda.php">Buscar Habitaciones</a>
+    <section class="contenido-perfil">
+        <div class="titulo-perfil">
+            <h2> Bienvenido, <?php echo htmlspecialchars_decode($_SESSION['nombre']); ?> !</h2>
+        </div>
+        <!-- Mostrar todas las reservaciones hechas -->
+        <div class="sutitulo-perfil">
+            <h2>Tus reservaciones</h2>
+        </div>
+        <?php if (count($habitaciones_reservadas) > 0): ?>
+            <div class="habitaciones-container">
+                <?php foreach ($habitaciones_reservadas as $habitacion): ?>
+                    <div class="habitacion">
+                        <div class="habitacion-imagen">
+                            <?php $imagen = !empty($habitacion['imagen']) ? htmlspecialchars($habitacion['imagen']) : 'imagen_por_defecto.jpg'; ?>
+                            <img class="habitacion-img" src="../assets/<?php echo $imagen; ?>" alt="<?php echo htmlspecialchars($habitacion['nombre']); ?>">
+                        </div>
+                        <div class="habitacion-nombre">
+                            <h3><?php echo htmlspecialchars($habitacion['nombre']); ?></h3>
+                        </div>
+                        <div class="habitacion-descripcion">
+                            <p><?php echo htmlspecialchars($habitacion['descripcion']); ?></p>
+                        </div>
+                        <div class="habitacion-tipo">
+                            <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
+                        </div>
+                        <div class="habitacion-precio">
+                            <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
+                        </div>
+                        <div class="habitacion-fecha_entrada">
+                            <p><strong>Fecha de entrada: </strong> <?php echo htmlspecialchars($habitacion['fecha_entrada']); ?></p>
+                        </div>
+                        <div class="habitacion-fecha-salida">
+                            <p><strong>Fecha de salida: </strong> <?php echo htmlspecialchars($habitacion['fecha_salida']); ?></p>
+                        </div>
+                        <div class="habitacion-costo">
+                            <p><strong>Costo total: </strong>$<?php echo number_format($habitacion['costo'], 2); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div>
+                <p>No has reservado habitaciones aún.</p>
+            </div>
+        <?php endif; ?>
     </section>
 
-    <h2>
-        <!-- 'htmlspecialchars_decode' se usa para decodificar cualquier entidad HTML especial que se haya almacenado en la variable de sesión 'usuario'-->
-        Bienvenido, <?php echo htmlspecialchars_decode($_SESSION['nombre']); ?> !
-    </h2>
-
-    <!-- Mostrar todas las reservaciones hechas -->
-    <h2>Tus reservaciones</h2>
-    <?php if (count($habitaciones_reservadas) > 0): ?>
-        <div class="habitaciones-container">
-            <?php foreach ($habitaciones_reservadas as $habitacion): ?>
-                <div class="habitacion">
-                    <?php
-                    // Verificar si la imagen existe o tiene un valor
-                    $imagen = !empty($habitacion['imagen']) ? htmlspecialchars($habitacion['imagen']) : 'imagen_por_defecto.jpg';
-                    ?>
-                    <img src="../assets/<?php echo $imagen; ?>"
-                        alt="<?php echo htmlspecialchars($habitacion['nombre']); ?>"
-                        class="habitacion-img">
-                    <h3><?php echo htmlspecialchars($habitacion['nombre']); ?></h3>
-                    <p><?php echo htmlspecialchars($habitacion['descripcion']); ?></p>
-                    <p><strong>Tipo: </strong><?php echo ucfirst(htmlspecialchars($habitacion['tipo'])); ?></p>
-                    <p><strong>Precio por noche: </strong>$<?php echo number_format($habitacion['precio'], 2); ?></p>
-                    <p><strong>Fecha de entrada: </strong> <?php echo htmlspecialchars($habitacion['fecha_entrada']); ?></p>
-                    <p><strong>Fecha de salida: </strong> <?php echo htmlspecialchars($habitacion['fecha_salida']); ?></p>
-                    <p><strong>Costo total: </strong>$<?php echo number_format($habitacion['costo'], 2); ?></p>
-                </div>
-            <?php endforeach; ?>
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="contacto">
+                <p>Contacto: <a href="mailto:hotelcecil2024@gmail.com">hotelcecil2024@gmail.com</a></p>
+            </div>
+            <div class="redes-sociales">
+                <p>Síguenos en:</p>
+                <ul>
+                    <li><a href="https://facebook.com/laterradelsol" target="_blank">Facebook</a></li>
+                    <li><a href="https://instagram.com/laterradelsol" target="_blank">Instagram</a></li>
+                    <li><a href="https://twitter.com/laterradelsol" target="_blank">Twitter</a></li>
+                </ul>
+            </div>
         </div>
-    <?php else: ?>
-        <p>No has reservado habitaciones aún.</p>
-    <?php endif; ?>
+        <div class="copyright">
+            <p>&copy; 2024 La Terraza del Sol. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

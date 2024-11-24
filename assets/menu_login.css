@@ -16,6 +16,10 @@ section {
     padding: 20px;
 }
 
+footer.footer {
+    margin-top: 3px; /* Espacio entre la sección de contenido y el footer */
+}
+
 /* Title for the login page */
 .titulo-login {
     font-size: 2rem;

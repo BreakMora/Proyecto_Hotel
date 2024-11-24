@@ -144,3 +144,6 @@
 [2024-11-23 07:30:44] Error: Parámetros de ID de cliente no proporcionados controller/EditarUsuariosAdmin.php.
 [2024-11-23 07:32:44] Error: Parámetros de ID de cliente no proporcionados controller/EditarUsuariosAdmin.php.
 [2024-11-23 07:35:45] Error: Parámetros de ID de cliente no proporcionados controller/EditarUsuariosAdmin.php.
+[2024-11-23 21:43:19] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-23 21:45:40] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-24 00:39:45] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
