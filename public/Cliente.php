@@ -36,10 +36,10 @@ if (!isset($_SESSION['id'])) {
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="Busqueda.php" class="activo">Habitaciones</a></li>
-                    <li><a href="Login.php">Iniciar Sesión</a></li>
-                    <li><a href="Registro.php">Registrarse</a></li>
+                    <li><a href="index.php" class="activo">Inicio</a></li>
+                    <li><a href="Busqueda.php">Habitaciones</a></li>
+                    <li><a href="Cliente.php">Reservaciones</a></li>
+                    <li><a href="Logout.php">Cerrar Sesion</a></li>
                 </ul>
             </div>
         </div>
