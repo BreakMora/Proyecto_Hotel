@@ -192,3 +192,40 @@
 [2024-11-24 05:00:17] Inicio de sesion: por administrador Amilcar.
 [2024-11-24 05:02:22] Inicio de sesion: por administrador Amilcar.
 [2024-11-24 05:06:23] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:12:02] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:12:08] Acceso: administrador Amilcar.
+[2024-11-24 06:12:13] Error: Datos inválidos o campos vacíos al actualizar la habitación.
+[2024-11-24 06:12:13] Acceso: administrador Amilcar.
+[2024-11-24 06:12:18] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:12:28] Acceso: administrador Amilcar.
+[2024-11-24 06:14:43] Error: Datos inválidos o campos vacíos al actualizar la habitación.
+[2024-11-24 06:14:43] Acceso: administrador Amilcar.
+[2024-11-24 06:14:51] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:14:59] Acceso: administrador Amilcar.
+[2024-11-24 06:15:04] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:16:00] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:16:14] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:21:31] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:21:36] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:22:46] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:22:49] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 06:23:06] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 12:30:49] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 12:30:57] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 14:12:29] Usuario registrado exitosamente.
+[2024-11-24 14:12:34] Inicio de sesión exitoso para: elbichoedgarmora@gmail.com
+[2024-11-24 14:14:51] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-24 14:14:57] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-24 14:15:12] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-24 14:15:51] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-24 14:17:08] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 14:17:23] Error: No se pudo actualizar la contraseña para el usuario con correo edgar07mora17@gmail.com. Inténtalo de nuevo más tarde.
+[2024-11-24 14:17:36] Error: Contraseña incorrecta para el email: edgar07mora17@gmail.com
+[2024-11-24 14:21:20] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 14:21:29] Éxito: La contraseña se ha cambiado correctamente para el usuario con correo edgar07mora17@gmail.com.
+[2024-11-24 14:21:33] Inicio de sesión exitoso para: edgar07mora17@gmail.com
+[2024-11-24 14:37:42] Inicio de sesión exitoso para: amilcar07mora@gmail.com
+[2024-11-24 14:37:43] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 14:37:54] Acceso: administrador Amilcar.
+[2024-11-24 14:37:56] Cliente con ID 1 actualizado correctamente.
+[2024-11-24 14:37:57] Inicio de sesion: por administrador Amilcar.

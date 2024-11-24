@@ -50,7 +50,10 @@ class CambiarContrasena {
 
         $email_usuario = $_SESSION['usuario_email'];
 
-        if ($this->clientes->actualizarContrasena($email_usuario, $nueva_contraseña)) {
+        // Aplicar password_hash a la nueva contraseña para asegurarla
+        $nueva_contraseña_hash = password_hash($nueva_contraseña, PASSWORD_DEFAULT);
+
+        if ($this->clientes->actualizarContrasena($email_usuario, $nueva_contraseña_hash)) {
             Logger::escribirLogs("Éxito: La contraseña se ha cambiado correctamente para el usuario con correo $email_usuario.");
             $this->redireccion("../../public/Login.php");
         } else {

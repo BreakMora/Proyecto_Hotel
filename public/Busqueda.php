@@ -13,11 +13,13 @@ if (isset($_SESSION['rol'])) {
     $rol_usuario = $_SESSION['rol'];
 }
 
+// Determina si el botón debe estar habilitado o deshabilitado
+$disabled = ($rol_usuario === 'cliente') ? '' : 'disabled'; 
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +40,7 @@ if (isset($_SESSION['rol'])) {
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="../index.php">Inicio</a></li>
                     <li><a href="Busqueda.php" class="activo">Habitaciones</a></li>
                     <?php if (!empty($rol_usuario)): ?>
                         <?php if ($rol_usuario == 'cliente'): ?>
@@ -124,7 +126,7 @@ if (isset($_SESSION['rol'])) {
                                 <form method="POST" action="Confirmar_Reserva.php">
                                     <input type="hidden" name="habitacion_id" value="<?php echo htmlspecialchars($habitacion['habitacion_id']); ?>">
                                     <div class="reservar-buton">
-                                        <button class="reservar-btn">Reservar</button>
+                                        <button class="reservar-btn"  <?php echo $disabled; ?>>Reservar</button>
                                     </div>
                                 </form>
                             </div>

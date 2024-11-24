@@ -8,19 +8,19 @@ require_once(__DIR__ . "/../app/utils/Logger.php");
 // Verifica si la variable de sesión 'usuario' no está definida, lo que significa que el usuario no ha iniciado sesión
 if (!isset($_SESSION['id'])) {
     Logger::escribirLogs("Error: Intento de acceso de negado.");
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 } 
 // Verifica si el rol del usuario es 'cliente' y redirige si es así
 if (!isset($_SESSION['rol']) && !$_SESSION['rol']=='cliente' || !$_SESSION['rol']=='administrador') {
     Logger::escribirLogs("Advertencia: El usuario : " . $_SESSION['nombre'] . ", con ID: " . $_SESSION['id'] . ", no tiene permiso para entrar a este archivo.");
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -42,7 +42,7 @@ if (!isset($_SESSION['rol']) && !$_SESSION['rol']=='cliente' || !$_SESSION['rol'
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="../index.php">Inicio</a></li>
                     <li><a href="Busqueda.php">Habitaciones</a></li>
                     <li><a href="Cliente.php" class="activo">Reservaciones</a></li>
                     <li><a href="Logout.php">Cerrar Sesion</a></li>

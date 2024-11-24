@@ -10,7 +10,7 @@ require_once(__DIR__ . '/../utils/Logger.php');
 // Verificar que el usuario haya iniciado sesión
 if (!isset($_SESSION['id'])) {
     
-    header("Location: Login.php");
+    header("Location: ../../public/Login.php");
     exit();
 }
 
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['fecha_entrada']) && is
             $correo->enviar($correo);
 
             // Redirigir al usuario a la página de búsqueda
-            header('Location: Busqueda.php');
+            header('Location: ../../public/Busqueda.php');
             exit();
         } else {
             echo "<p>Error al procesar la reserva. Por favor, intente de nuevo.</p>";

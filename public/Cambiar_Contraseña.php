@@ -7,7 +7,7 @@ if (!isset($_SESSION['codigo_validado']) || !$_SESSION['codigo_validado']) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +29,7 @@ if (!isset($_SESSION['codigo_validado']) || !$_SESSION['codigo_validado']) {
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="../index.php">Inicio</a></li>
                     <li><a href="Busqueda.php">Habitaciones</a></li>
                     <li><a href="Login.php">Iniciar Sesión</a></li>
                     <li><a href="Registro.php">Registrarse</a></li>

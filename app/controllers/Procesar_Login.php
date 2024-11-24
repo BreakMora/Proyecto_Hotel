@@ -52,16 +52,17 @@ class Login {
         } else {
             $datos = $this->clientes->getDatosClientesEmail($iniciarSesion['email']);
         }
-        $redireccion = "../../public/index.php";
+        
         if($datos->num_rows > 0){
             $datos_usuario = $datos->fetch_assoc();
 
-            if($iniciarSesion['contrasena'] === $datos_usuario['contrasena']){
+            if(password_verify($iniciarSesion['contrasena'], $datos_usuario['contrasena'])){
                 $_SESSION['id'] = ($usuario) ? $datos_usuario['admin_id'] : $datos_usuario['cliente_id'];
                 $_SESSION['rol'] = $datos_usuario['rol'];
                 $_SESSION['nombre'] = $datos_usuario['nombre'];
                 $_SESSION['usuario_email'] = $datos_usuario['email'];
-                $this->redireccion($redireccion);
+                Logger::escribirLogs("Inicio de sesión exitoso para: " . $datos_usuario['email']);
+                $this->redireccion("../../index.php");
             } else {
                 Logger::escribirLogs("Error: Contraseña incorrecta para el email: " . $iniciarSesion['email']);
                 $this->redireccion("../../public/Login.php");

@@ -10,19 +10,18 @@ if (isset($_SESSION['rol'])) {
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Terraza del Sol</title>
-    <link rel="stylesheet" href="../assets/menu_inicio.css">
+    <link rel="stylesheet" href="assets/menu_inicio.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <section class="banner">
         <video autoplay loop muted>
-            <source src="../assets/banner.mp4" type="video/mp4">
+            <source src="assets/banner.mp4" type="video/mp4">
         </video>
     </section>
 
@@ -31,24 +30,24 @@ if (isset($_SESSION['rol'])) {
             <div class="Esquina-izquierda">
                 <!-- Logo del sitio -->
                 <a href="" class="logo">
-                    <img src="../assets/terraza_sol.png" alt="La Terraza del Sol" class="logo-img">
+                    <img src="assets/terraza_sol.png" alt="La Terraza del Sol" class="logo-img">
                     <div class="logo-texto">La Terraza del Sol</div>
                 </a>
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
                     <li><a href="index.php" class="activo">Inicio</a></li>
-                    <li><a href="Busqueda.php">Habitaciones</a></li>
+                    <li><a href="public/Busqueda.php">Habitaciones</a></li>
                     <?php if (!empty($rol_usuario)): ?>
                         <?php if ($rol_usuario == 'cliente'): ?>
-                            <li><a href="Cliente.php">Reservaciones</a></li>
+                            <li><a href="public/Cliente.php">Reservaciones</a></li>
                         <?php elseif ($rol_usuario == 'administrador'): ?>
-                            <li><a href="Admin.php">Administración</a></li>
+                            <li><a href="public/Admin.php">Administración</a></li>
                         <?php endif; ?>
-                        <li><a href="Logout.php">Cerrar Sesión</a></li>
+                        <li><a href="public/Logout.php">Cerrar Sesión</a></li>
                     <?php else: ?>
-                        <li><a href="Login.php">Iniciar Sesión</a></li>
-                        <li><a href="Registro.php">Registrarse</a></li>
+                        <li><a href="public/Login.php">Iniciar Sesión</a></li>
+                        <li><a href="public/Registro.php">Registrarse</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -80,7 +79,7 @@ if (isset($_SESSION['rol'])) {
     <section class="cta">
         <h2>¿Listo para tus vacaciones?</h2>
         <p>Encuentra la habitación perfecta para tu estancia en La Terraza del Sol.</p>
-        <a href="Busqueda.php" class="boton-reservar">Reservar Ahora</a>
+        <a href="public/Busqueda.php" class="boton-reservar">Reservar Ahora</a>
     </section>
 
     <!-- Servicios Destacados -->
@@ -88,17 +87,17 @@ if (isset($_SESSION['rol'])) {
         <h2>Servicios Destacados</h2>
         <div class="servicios-contenedor">
             <div class="servicio">
-                <img src="../assets/spa.jpg" alt="Spa">
+                <img src="assets/spa.jpg" alt="Spa">
                 <h3>Spa</h3>
                 <p>Relájate con nuestros masajes y tratamientos exclusivos.</p>
             </div>
             <div class="servicio">
-                <img src="../assets/restaurante.jpg" alt="Restaurante">
+                <img src="assets/restaurante.jpg" alt="Restaurante">
                 <h3>Restaurante</h3>
                 <p>Disfruta de los mejores platos locales e internacionales.</p>
             </div>
             <div class="servicio">
-                <img src="../assets/actividades.jpg" alt="Actividades">
+                <img src="assets/actividades.jpg" alt="Actividades">
                 <h3>Actividades</h3>
                 <p>Explora nuestras excursiones y actividades al aire libre.</p>
             </div>

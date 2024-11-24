@@ -41,6 +41,8 @@ class RegistrarUsuario {
             Logger::escribirLogs ("Error: Campo ". $data_usuario['email'] . " no valido.");
             $this->redireccion("../../public/Registro.php");
         }
+        
+        $data_usuario['contrasena'] = password_hash($data_usuario['contrasena'], PASSWORD_DEFAULT);
 
         if ($this->clientes->guardarUsuario($data_usuario)) {
             Logger::escribirLogs("Usuario registrado exitosamente.");

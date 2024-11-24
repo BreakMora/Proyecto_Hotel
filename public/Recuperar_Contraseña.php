@@ -19,7 +19,7 @@
             </div>
             <div class="Esquina-derecha">
                 <ul class="barra-navegacion">
-                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="../index.php">Inicio</a></li>
                     <li><a href="Busqueda.php">Habitaciones</a></li>
                     <li><a href="Login.php">Iniciar Sesión</a></li>
                     <li><a href="Registro.php">Registrarse</a></li>

@@ -204,7 +204,7 @@ form {
 
 /* Botón de reserva */
 .reservar-busqueda .reservar-btn {
-    background-color: #007BFF;
+    background-color: #da3b13;
     color: white;
     padding: 10px;
     width: 100%;
@@ -216,5 +216,5 @@ form {
 }
 
 .reservar-busqueda .reservar-btn:hover {
-    background-color: #0056b3;
+    background-color: #8d250b;
 }

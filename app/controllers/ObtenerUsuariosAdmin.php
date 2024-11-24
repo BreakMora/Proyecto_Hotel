@@ -8,7 +8,7 @@ if(isset($_SESSION['id'])){
     $id_usuario = $_SESSION['id'];
 } else {
     // Redirige al usuario a la página de inicio de sesión si no ha iniciado sesión
-    header("Location: Login.php");
+    header("Location: ../../public/Login.php");
     // Finaliza el script para evitar que el resto del código se ejecute
     exit();
 }

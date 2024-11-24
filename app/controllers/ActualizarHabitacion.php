@@ -14,14 +14,20 @@ if (!isset($_SESSION['id'])){
 $habitacion_controller = new Habitaciones($conn);
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $habitacion_id = $_POST['habitacion_id'];
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $precio = $_POST['precio'];
+    $habitacion_id = filter_input(INPUT_POST, 'habitacion_id', FILTER_VALIDATE_INT);
+    $nombre = htmlspecialchars(trim($_POST['nombre']));
+    $descripcion = htmlspecialchars(trim($_POST['descripcion']));
+    $precio = filter_input(INPUT_POST, 'precio', FILTER_VALIDATE_FLOAT);
     $disponibilidad = isset($_POST['disponibilidad']) && $_POST['disponibilidad'] === 'Si' ? 1 : 0;
-    $cantidad_habitaciones = $_POST['cantidad_habitaciones'];
-    $imagen = $_POST['imagen'];
-    $tipo = $_POST['tipo'];
+    $cantidad_habitaciones = filter_input(INPUT_POST, 'cantidad_habitaciones', FILTER_VALIDATE_INT);
+    $imagen = filter_input(INPUT_POST, 'imagen', FILTER_SANITIZE_URL);
+    $tipo = htmlspecialchars(trim($_POST['tipo']));
+
+    if (!$habitacion_id || !$nombre || !$descripcion || $precio === false || !$cantidad_habitaciones) {
+        Logger::escribirLogs("Error: Datos inválidos o campos vacíos al actualizar la habitación.");
+        header('Location: ../../public/EditarHabitacionAdmin.php');
+        exit();
+    }
 
     try{
         $habitacion_controller->actualizarHabitacion($habitacion_id, $nombre, $descripcion, $precio, $disponibilidad, $cantidad_habitaciones, $imagen, $tipo);

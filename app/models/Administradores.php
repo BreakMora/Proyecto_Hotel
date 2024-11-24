@@ -26,6 +26,13 @@ class Administradores {
         $stmt->execute();
         return $stmt->get_result();
     }
+
+    /*public function actualizarContrasena($nueva_contraseña_hash) {
+        $sql = "UPDATE administradores SET contrasena = ? WHERE admin_id = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $nueva_contraseña_hash);
+        $stmt->execute();
+    }*/
 }
 
 ?>
