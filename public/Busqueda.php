@@ -8,6 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && (!empty($_GET['tipo']) || isset($_GE
     require_once(__DIR__ . '/../app/controllers/Obtener_Habitaciones.php');
 }
 
+$rol_usuario = null;
+if (isset($_SESSION['rol'])) {
+    $rol_usuario = $_SESSION['rol'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && (!empty($_GET['tipo']) || isset($_GE
                 <ul class="barra-navegacion">
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="Busqueda.php" class="activo">Habitaciones</a></li>
-                    <li><a href="Login.php">Iniciar Sesión</a></li>
-                    <li><a href="Registro.php">Registrarse</a></li>
+                    <?php if (!empty($rol_usuario)): ?>
+                        <?php if ($rol_usuario == 'cliente'): ?>
+                            <li><a href="Cliente.php">Reservaciones</a></li>
+                        <?php elseif ($rol_usuario == 'administrador'): ?>
+                            <li><a href="Admin.php">Administración</a></li>
+                        <?php endif; ?>
+                        <li><a href="Logout.php">Cerrar Sesión</a></li>
+                    <?php else: ?>
+                        <li><a href="Login.php">Iniciar Sesión</a></li>
+                        <li><a href="Registro.php">Registrarse</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

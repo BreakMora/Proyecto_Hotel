@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+$rol_usuario = null;
+if (isset($_SESSION['rol'])) {
+    $rol_usuario = $_SESSION['rol'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,8 +39,17 @@
                 <ul class="barra-navegacion">
                     <li><a href="index.php" class="activo">Inicio</a></li>
                     <li><a href="Busqueda.php">Habitaciones</a></li>
-                    <li><a href="Login.php">Iniciar Sesión</a></li>
-                    <li><a href="Registro.php">Registrarse</a></li>
+                    <?php if (!empty($rol_usuario)): ?>
+                        <?php if ($rol_usuario == 'cliente'): ?>
+                            <li><a href="Cliente.php">Reservaciones</a></li>
+                        <?php elseif ($rol_usuario == 'administrador'): ?>
+                            <li><a href="Admin.php">Administración</a></li>
+                        <?php endif; ?>
+                        <li><a href="Logout.php">Cerrar Sesión</a></li>
+                    <?php else: ?>
+                        <li><a href="Login.php">Iniciar Sesión</a></li>
+                        <li><a href="Registro.php">Registrarse</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

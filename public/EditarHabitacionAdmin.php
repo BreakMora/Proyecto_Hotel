@@ -1,6 +1,22 @@
 <?php
 require_once(__DIR__ . "/../app/controllers/EditarHabitacionAdmin.php");
 
+// Verifica si la variable de sesión 'usuario' no está definida, lo que significa que el usuario no ha iniciado sesión
+if (!isset($_SESSION['id'])) {
+    Logger::escribirLogs("Error: Intento de acceso de negado.");
+    header("Location: index.php");
+    exit();
+} 
+// Verifica si el rol del usuario es 'cliente' y redirige si es así
+if (isset($_SESSION['rol']) && $_SESSION['rol']=='cliente') {
+    Logger::escribirLogs("Advertencia: El usuario : " . $_SESSION['nombre'] . ", con ID: " . $_SESSION['id'] . ", no tiene permiso para entrar a este archivo.");
+    header("Location: index.php");
+    exit();
+} else {
+    // Si el rol no está definido como 'cliente', se registra una advertencia en los logs
+    Logger::escribirLogs("Acceso: administrador " . $_SESSION['nombre'] . ".");
+}
+
 $habitacion = $_SESSION['habitacion'] ?? [];
 
 ?>

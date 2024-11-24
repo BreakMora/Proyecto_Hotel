@@ -9,6 +9,7 @@ require_once(__DIR__ . '/../utils/Logger.php');
 
 // Verificar que el usuario haya iniciado sesión
 if (!isset($_SESSION['id'])) {
+    
     header("Location: Login.php");
     exit();
 }

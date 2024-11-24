@@ -158,3 +158,37 @@
 [2024-11-24 03:07:07] Correo de recuperación enviado, verifica tu bandeja de entrada
 [2024-11-24 03:07:26] Correo de recuperación enviado, verifica tu bandeja de entrada
 [2024-11-24 03:16:36] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 04:09:59] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:15:18] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-24 04:15:43] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
+[2024-11-24 04:17:33] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:17:39] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:17:45] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:18:05] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:18:33] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:18:34] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:18:37] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:18:52] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:19:45] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:20:04] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:20:19] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:20:57] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:23:17] Advertencia: No se encontro el rol definido para el usuario: Amilcar
+[2024-11-24 04:24:56] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:25:36] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:26:17] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:26:31] Advertencia: No se encontro el rol definido para el usuario: Edgar
+[2024-11-24 04:29:42] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-24 04:29:56] Advertencia: No se encontro el rol definido para el usuario: Amilcar
+[2024-11-24 04:32:37] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:36:27] Error: El email ingresado no pertenece a ninguna cuenta de cliente registrada.
+[2024-11-24 04:37:09] Advertencia: El usuario : Edgar, con ID: 1, no tiene permiso para entrar a este archivo.
+[2024-11-24 04:40:28] Advertencia: El usuario : Edgar, con ID: 1, acceso no permitido.
+[2024-11-24 04:40:58] Advertencia: El usuario : Edgar, con ID: 1, acceso no permitido.
+[2024-11-24 04:41:26] Error: Intento de acceso de negado.
+[2024-11-24 04:54:08] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 04:56:51] Error: El campo 'contrasena' vacío.
+[2024-11-24 04:57:56] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 05:00:17] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 05:02:22] Inicio de sesion: por administrador Amilcar.
+[2024-11-24 05:06:23] Inicio de sesion: por administrador Amilcar.
