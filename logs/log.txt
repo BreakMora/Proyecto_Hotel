@@ -148,3 +148,13 @@
 [2024-11-23 21:45:40] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
 [2024-11-24 00:39:45] Advertencia: Intento de acceso a reservaciones sin iniciar sesión.
 [2024-11-24 01:29:55] Error: Contraseña incorrecta para el email: amilcar07mora@gmail.com
+[2024-11-24 02:40:46] Advertencia: No se encontró la habitación con ID 0.
+[2024-11-24 02:40:49] Advertencia: No se encontró la habitación con ID 0.
+[2024-11-24 02:41:33] Error: Intento de acceso no autorizado sin sesión activa.
+[2024-11-24 02:41:36] Error: Intento de acceso no autorizado sin sesión activa.
+[2024-11-24 02:41:47] Error: Intento de acceso no autorizado sin sesión activa.
+[2024-11-24 03:05:51] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 03:06:22] Éxito: La contraseña se ha cambiado correctamente para el usuario con correo edgar07mora17@gmail.com.
+[2024-11-24 03:07:07] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 03:07:26] Correo de recuperación enviado, verifica tu bandeja de entrada
+[2024-11-24 03:16:36] Correo de recuperación enviado, verifica tu bandeja de entrada
